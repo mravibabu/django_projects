@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>welocome to the portfolio page</title>
+</head>
+<body>
+    <h1>Portfolio landing page </h1>
+    {{model_elements}}
+    {% load static %}
+    <img src="{% static 'portfolio/img2.JPG' %}" height="500" width="500">
+    <bR>
+    {% for model in model_elements %}
+
+            <h1>{{model.title}}</h1>
+            <p>{{model.description}}</p>
+            {{model.image}}
+            <br>
+            <br>
+            <img src="{{model.image.url}}" height="300"  width="500">
+            {% if model.url %}
+            <br>
+            <br>
+            <a href="{{model.url}}">Link</a>
+            {% endif %}
+    {% endfor %}
+</body>
+</html>
